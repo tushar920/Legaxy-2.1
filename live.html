@@ -472,9 +472,13 @@ footer{padding:48px 72px 28px;background:var(--ink);border-top:1px solid rgba(25
   .evt-date{text-align:left;padding-right:0;display:flex;align-items:baseline;gap:10px}
   .evt-node{right:auto;left:-34px;top:4px}
   .evt-year{margin-top:0}
-  .evt-card{grid-template-columns:1fr}
-  .evt-thumb{border-right:none;border-bottom:1px solid rgba(255,255,255,.05)}
-  .evt-info{padding:22px 22px 24px}
+  /* Stack card: thumb on top, info below */
+  .evt-card{grid-template-columns:1fr!important;grid-template-rows:auto auto}
+  .evt-thumb{border-right:none;border-bottom:1px solid rgba(255,255,255,.05);aspect-ratio:16/9}
+  .evt-info{padding:18px 16px 20px!important}
+  .evt-title{font-size:18px!important}
+  .evt-desc{font-size:13px!important;line-height:1.55!important;max-width:100%!important}
+  .evt-tag{font-size:9px}
 }
 
 </style>
