@@ -145,10 +145,30 @@ footer{background:rgba(7,11,26,.99);border-top:1px solid rgba(255,255,255,.05);p
 }
 @media(max-width:768px){
   header,.team-container,footer{padding-inline:24px}
-  header{padding-top:110px;padding-bottom:50px}
+  header{padding-top:96px;padding-bottom:40px}
+  header h1{font-size:clamp(32px,8vw,48px)}
+  .header-desc{font-size:14px}
   .grid-founders,.grid-advisors,.grid-leadership,.grid-exec{grid-template-columns:repeat(2,1fr)}
   .grid-team,.grid-consultants{grid-template-columns:repeat(2,1fr)}
   nav ul{display:none}
+  /* Hamburger */
+  #teamHam{display:flex!important;position:absolute;right:16px;flex-direction:column;gap:5px;background:none;border:none;padding:6px;cursor:pointer;z-index:3000}
+  #teamHam span{display:block;width:22px;height:1px;background:#C8C8D0;transition:all .3s}
+  .team-drawer{
+    display:none;position:fixed;top:0;right:0;width:78vw;max-width:320px;height:100dvh;
+    background:rgba(7,11,26,.98);backdrop-filter:blur(20px);
+    z-index:4000;padding:80px 28px 40px;border-left:1px solid rgba(188,82,37,.2);
+    flex-direction:column;gap:6px;overflow-y:auto;
+  }
+  .team-drawer.open{display:flex}
+  .team-drawer a{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#9A9AA4;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s}
+  .team-drawer a:hover,.team-drawer a.active{color:#BC5225}
+  .team-drawer .d-close{position:absolute;top:20px;right:20px;background:none;border:none;color:#9A9AA4;font-size:22px;cursor:pointer;padding:4px}
+  .drawer-bg{display:none;position:fixed;inset:0;z-index:3999;background:rgba(0,0,0,.5)}
+  .drawer-bg.open{display:block}
+  /* Footer 2-col */
+  .footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}
+  .footer-logo-wrap img{width:min(200px,80%)!important}
   body{cursor:auto!important}
   #cx,#cr{display:none!important}
   *{cursor:auto!important}
@@ -190,6 +210,22 @@ footer{background:rgba(7,11,26,.99);border-top:1px solid rgba(255,255,255,.05);p
     <li><a href="media.html">Media &amp; Gallery</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+  <button id="teamHam" style="display:none" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="drawer-bg" id="teamBg"></div>
+<nav class="team-drawer" id="teamDrawer">
+  <button class="d-close" id="teamClose">✕</button>
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About Us</a>
+  <a href="athletes.html">Talent</a>
+  <a href="studio.html">Studio</a>
+  <a href="live.html">Live</a>
+  <a href="learning.html">Learning</a>
+  <a href="capital.html">Capital</a>
+  <a href="wealth.html">Wealth</a>
+  <a href="team.html" class="active">Team</a>
+  <a href="media.html">Media &amp; Gallery</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <header>
@@ -361,6 +397,18 @@ window.addEventListener('scroll',()=>{
   document.getElementById('prog').style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';
   document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60);
 },{passive:true});
+// Mobile hamburger drawer
+(function(){
+  var ham=document.getElementById('teamHam'),
+      drawer=document.getElementById('teamDrawer'),
+      bg=document.getElementById('teamBg'),
+      cls=document.getElementById('teamClose');
+  if(!ham)return;
+  function toggle(open){drawer.classList.toggle('open',open);bg.classList.toggle('open',open);}
+  ham.addEventListener('click',function(){toggle(!drawer.classList.contains('open'))});
+  bg.addEventListener('click',function(){toggle(false)});
+  if(cls)cls.addEventListener('click',function(){toggle(false)});
+})();
 </script>
 </body>
 </html>
