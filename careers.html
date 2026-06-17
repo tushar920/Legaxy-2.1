@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Careers — LegaXy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Barlow:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange-light:#FFB37A;--orange:#BC5225;--orange-dark:#7A3010;
+  --chrome:#C8C8D0;--chrome-dim:#9A9AA4;
+  --ink:#070B1A;--ink-mid:#0C1124;--ink-lift:#101628;
+  --text:#F0EEEA;--text-muted:#9A9AA4;--text-dim:#4A4A52;--text-bright:#E4E2DE;
+  --metal:linear-gradient(135deg,var(--orange-light) 0%,var(--orange) 40%,var(--orange-dark) 70%,var(--orange) 100%);
+  --metal-text:linear-gradient(90deg,var(--orange-light),var(--orange),var(--orange-dark),var(--orange),var(--orange-light));
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:linear-gradient(160deg,#070B1A 0%,#0A0F22 50%,#070B1A 100%);background-attachment:fixed;color:var(--text);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none}
+#cx,#cr{position:fixed;pointer-events:none;border-radius:50%;z-index:10000;transform:translate(-50%,-50%);top:0;left:0}
+#cx{width:8px;height:8px;background:var(--orange);transition:width .2s,height .2s}
+#cr{width:30px;height:30px;border:1px solid rgba(188,82,37,.5);transition:top .15s cubic-bezier(.23,1,.32,1),left .15s cubic-bezier(.23,1,.32,1),width .3s,height .3s}
+body:has(a:hover,button:hover,[data-h]:hover,.role-card:hover) #cx{width:14px;height:14px}
+body:has(a:hover,button:hover,[data-h]:hover,.role-card:hover) #cr{width:44px;height:44px;border-color:var(--orange)}
+#prog{position:fixed;top:0;left:0;height:1px;z-index:9999;background:var(--metal);width:0}
+
+/* NAV */
+nav{position:fixed;top:0;inset-inline:0;z-index:2000;display:flex;justify-content:space-between;align-items:center;padding:0 52px;height:72px;background:rgba(7,11,26,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.04)}
+.logo{display:flex;align-items:center;text-decoration:none;height:52px}
+.logo img{height:100%;width:auto;object-fit:contain;display:block;filter:brightness(1.15)}
+.logo-text-fallback{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFF;display:none}
+.logo-x-fb{background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-back{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--chrome-dim);text-decoration:none;cursor:none;transition:color .3s;display:flex;align-items:center;gap:10px}
+.nav-back::before{content:'←';font-size:14px;transition:transform .3s}
+.nav-back:hover{color:var(--orange)}
+.nav-back:hover::before{transform:translateX(-4px)}
+.nav-links{display:flex;gap:0;list-style:none;align-items:center}
+.nav-links li a{display:block;padding:0 13px;height:72px;line-height:72px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--chrome-dim);text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:600;transition:color .3s;white-space:nowrap}
+.nav-links li a:hover,.nav-links li a.active{color:var(--orange)}
+.nav-btn-sm{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid var(--orange);color:var(--orange);padding:8px 16px;cursor:none;margin-left:8px;transition:background .3s,color .3s;text-decoration:none;display:inline-block}
+.nav-btn-sm:hover{background:var(--orange);color:#FFF}
+@media(max-width:900px){.nav-links,.nav-btn-sm{display:none}}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 72px 80px;position:relative;overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 65% 30%,rgba(188,82,37,.07),transparent 55%),radial-gradient(ellipse 40% 40% at 10% 90%,rgba(188,82,37,.04),transparent 50%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(188,82,37,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(188,82,37,.04) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 80%)}
+.hero-grain{position:absolute;inset:0;z-index:1;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-content{position:relative;z-index:10;max-width:700px}
+.hero-badge{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:rgba(255,179,122,.85);display:flex;align-items:center;gap:14px;margin-bottom:18px;animation:hFade .9s .2s both}
+.hero-badge::before{content:'';width:36px;height:1px;background:var(--orange)}
+.hero-h1{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(52px,8vw,108px);line-height:.88;letter-spacing:-2px;color:#FFF;animation:hFade .9s .35s both}
+.hero-h1 .accent{display:block;background:var(--metal-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shineText 5s linear infinite}
+@keyframes shineText{0%{background-position:200%}100%{background-position:-200%}}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:rgba(240,238,234,.75);margin-top:16px;line-height:1.65;animation:hFade .9s .5s both}
+.hero-ctas{display:flex;gap:14px;margin-top:36px;animation:hFade .9s .65s both;flex-wrap:wrap}
+@keyframes hFade{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-stats{display:flex;gap:0;margin-top:64px;border-top:1px solid rgba(188,82,37,.1);animation:hFade .9s .8s both}
+.hstat{flex:1;padding:22px 0 0;border-right:1px solid rgba(255,255,255,.04)}
+.hstat:last-child{border-right:none;padding-left:28px}
+.hstat:first-child{padding-right:28px}
+.hs-num{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(26px,3vw,40px);background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hs-label{font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+
+/* UTILS */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.section-eyebrow{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--orange)}
+.section-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(28px,4.5vw,56px);letter-spacing:-.5px;line-height:1;color:#FFF;margin-bottom:16px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--orange);border:1px solid var(--orange);color:#FFF;padding:13px 32px;cursor:none;text-decoration:none;transition:all .3s}
+.btn-primary:hover{background:transparent;color:var(--orange);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text-bright);padding:13px 32px;cursor:none;text-decoration:none;transition:all .3s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+/* WHY JOIN */
+#why{padding:120px 72px;background:var(--ink-mid)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.why-card{padding:40px 34px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;transition:background .3s,border-color .3s;cursor:none}
+.why-card:hover{background:rgba(188,82,37,.05);border-color:rgba(188,82,37,.18)}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--metal);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.23,1,.32,1)}
+.why-card:hover::after{transform:scaleX(1)}
+.wc-icon{font-size:30px;margin-bottom:18px;display:block}
+.wc-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:18px;letter-spacing:.5px;color:#FFF;margin-bottom:10px}
+.wc-desc{font-size:14px;line-height:1.8;color:var(--text-muted)}
+.wc-ghost{position:absolute;bottom:-10px;right:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:72px;color:rgba(255,255,255,.02);pointer-events:none}
+
+/* OPEN ROLES */
+#roles{padding:120px 72px;background:var(--ink)}
+.roles-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:24px;flex-wrap:wrap}
+.dept-tabs{display:flex;gap:2px}
+.dept-tab{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--chrome-dim);cursor:none;transition:all .3s}
+.dept-tab.active{background:var(--orange);border-color:transparent;color:#FFF}
+.dept-tab:hover:not(.active){border-color:rgba(255,255,255,.3);color:#FFF}
+.roles-grid{display:flex;flex-direction:column;gap:2px}
+.role-card{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:28px 32px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);cursor:none;transition:background .3s,border-color .3s;text-decoration:none;color:inherit}
+.role-card:hover{background:rgba(188,82,37,.05);border-color:rgba(188,82,37,.25)}
+.role-card-left{}
+.role-dept{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.role-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:20px;letter-spacing:.5px;color:#FFF;margin-bottom:6px}
+.role-meta{display:flex;gap:20px;flex-wrap:wrap}
+.role-meta-item{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);display:flex;align-items:center;gap:6px}
+.role-meta-item::before{content:'';width:3px;height:3px;border-radius:50%;background:rgba(188,82,37,.5);flex-shrink:0}
+.role-card-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.role-type-badge{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(188,82,37,.3);color:rgba(255,179,122,.8)}
+.role-arrow{width:36px;height:36px;border-radius:50%;border:1px solid rgba(188,82,37,.25);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:12px;transition:background .3s,border-color .3s}
+.role-card:hover .role-arrow{background:var(--orange);border-color:var(--orange);color:#FFF}
+/* Add role placeholder */
+.role-add-slot{padding:24px 32px;background:rgba(255,255,255,.01);border:1px dashed rgba(188,82,37,.15);display:flex;align-items:center;gap:16px;cursor:none;transition:background .3s,border-color .3s}
+.role-add-slot:hover{background:rgba(188,82,37,.03);border-color:rgba(188,82,37,.3)}
+.ras-label{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(188,82,37,.35)}
+
+/* INTERNSHIPS */
+#internships{padding:120px 72px;background:var(--ink-mid)}
+.internship-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:56px}
+.intern-card{padding:36px 32px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);transition:background .3s,border-color .3s;cursor:none;position:relative}
+.intern-card:hover{background:rgba(188,82,37,.05);border-color:rgba(188,82,37,.2)}
+.ic-num{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(188,82,37,.4);margin-bottom:16px;display:block}
+.ic-icon{font-size:26px;margin-bottom:16px;display:block}
+.ic-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:20px;letter-spacing:.5px;color:#FFF;margin-bottom:8px}
+.ic-dept{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.ic-desc{font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:16px}
+.ic-perks{display:flex;flex-wrap:wrap;gap:8px}
+.ic-perk{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.06);color:var(--text-dim)}
+.ic-ghost{position:absolute;bottom:-8px;right:12px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:60px;color:rgba(255,255,255,.02);pointer-events:none}
+
+/* CULTURE */
+#culture{padding:120px 72px;background:var(--ink);position:relative;overflow:hidden}
+#culture::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(188,82,37,.05),transparent 65%);pointer-events:none}
+.culture-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.culture-text{}
+.culture-values{display:flex;flex-direction:column;gap:2px;margin-top:36px}
+.cv-item{display:flex;gap:16px;padding:18px 20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:background .3s,border-color .3s;cursor:none}
+.cv-item:hover{background:rgba(188,82,37,.04);border-color:rgba(188,82,37,.15)}
+.cv-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.cv-body{}
+.cv-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;color:#FFF;margin-bottom:3px}
+.cv-desc{font-size:13px;line-height:1.65;color:var(--text-muted)}
+.culture-visual{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;height:480px}
+.cv-frame{overflow:hidden;background:var(--ink-lift);position:relative}
+.cv-frame.span2{grid-column:span 2}
+.cv-frame-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--ink-lift),var(--ink-mid));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.cv-frame:hover .cv-frame-inner{transform:scale(1.04)}
+.cv-frame-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 40% 40%,rgba(188,82,37,.09),transparent 60%)}
+.cv-ph-label{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(188,82,37,.25);z-index:1;text-align:center;padding:16px;position:relative}
+
+/* APPLICATION FORM */
+#apply{padding:120px 72px;background:var(--ink-mid)}
+.apply-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.apply-info{}
+.apply-steps{display:flex;flex-direction:column;gap:2px;margin-top:36px}
+.astep{display:flex;gap:16px;padding:20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:background .3s}
+.astep:hover{background:rgba(188,82,37,.04)}
+.as-num{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:var(--orange);flex-shrink:0;width:28px;padding-top:2px}
+.as-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;color:#FFF;margin-bottom:3px}
+.as-desc{font-size:13px;line-height:1.65;color:var(--text-muted)}
+.apply-form-wrap{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:40px}
+.form-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;letter-spacing:1px;color:#FFF;margin-bottom:6px}
+.form-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--text-muted);margin-bottom:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-label{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--chrome-dim)}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:11px 14px;outline:none;transition:border-color .3s;width:100%;-webkit-appearance:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:rgba(188,82,37,.5)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-dim)}
+.form-select{cursor:none;background-color:var(--ink-lift);color:var(--text-bright)}
+.form-select option{background:var(--ink-lift)}
+.form-textarea{resize:vertical;min-height:110px;line-height:1.6}
+.form-submit{width:100%;padding:14px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--orange);border:none;color:#FFF;cursor:none;margin-top:8px;transition:all .3s;position:relative;overflow:hidden}
+.form-submit:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 10px 32px rgba(188,82,37,.35)}
+.form-note{font-size:11px;color:var(--text-dim);text-align:center;margin-top:12px;font-style:italic;font-family:'Playfair Display',serif}
+.form-success{display:none;text-align:center;padding:32px 20px}
+.fs-icon{font-size:40px;margin-bottom:16px;display:block}
+.fs-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;letter-spacing:1px;color:#FFF;margin-bottom:8px}
+.fs-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--text-muted)}
+
+/* CTA */
+#cta{padding:120px 72px;background:var(--ink);position:relative;overflow:hidden;text-align:center}
+#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(188,82,37,.07),transparent 65%)}
+.cta-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(80px,18vw,200px);line-height:1;letter-spacing:-8px;color:rgba(188,82,37,.04);pointer-events:none;user-select:none;white-space:nowrap}
+.cta-inner{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.cta-eyebrow{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'';width:32px;height:1px;background:rgba(188,82,37,.4)}
+.cta-h{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(36px,6vw,80px);line-height:.9;letter-spacing:-1px;color:#FFF;margin-bottom:18px}
+.cta-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(240,238,234,.7);line-height:1.6;margin-bottom:36px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{padding:32px 72px;background:var(--ink-mid);border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);text-decoration:none;cursor:none;transition:color .25s}
+.footer-links a:hover{color:var(--orange)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  #hero,#why,#roles,#internships,#culture,#apply,#cta{padding:80px 24px}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .culture-layout{grid-template-columns:1fr}
+  .culture-visual{height:320px}
+  .internship-grid{grid-template-columns:1fr}
+  .apply-layout{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:24px}
+}
+@media(max-width:600px){
+  .why-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;gap:0}
+  .hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,.04);padding:16px 0}
+  .dept-tabs{flex-wrap:wrap}
+  .cta-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<div id="cx"></div><div id="cr"></div><div id="prog"></div>
+
+<nav>
+  <a class="logo" href="index.html">
+    <img src="Legaxy_logo_light.png" alt="Legaxy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <span class="logo-text-fallback">LEGA<span class="logo-x-fb">X</span>Y</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="athletes.html">Elite</a></li>
+    <li><a href="studio.html">Studio</a></li>
+    <li><a href="live.html">Live</a></li>
+    <li><a href="https://tushar920.github.io/LSA/" target="_blank">Legaxy Learning</a></li>
+  </ul>
+  <a class="nav-btn-sm" href="careers.html" style="background:rgba(188,82,37,.12);text-decoration:none">Careers</a>
+  <a class="nav-btn-sm" href="contact.html" style="text-decoration:none">Enter Ecosystem</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-badge">LegaXy — Careers</div>
+    <h1 class="hero-h1">BUILD THE<br/>FUTURE OF<br/><span class="accent">INDIAN SPORT.</span></h1>
+    <p class="hero-sub">Join the team behind India's most ambitious sports ecosystem — athletes, brands, content, and culture, all under one roof.</p>
+    <div class="hero-ctas">
+      <a href="#roles" class="btn-primary">See Open Roles →</a>
+      <a href="#internships" class="btn-ghost">Internship Programme</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hs-num">12+</div>
+        <div class="hs-label">Team Members</div>
+      </div>
+      <div class="hstat">
+        <div class="hs-num">5</div>
+        <div class="hs-label">Business Verticals</div>
+      </div>
+      <div class="hstat">
+        <div class="hs-num">∞</div>
+        <div class="hs-label">Growth Potential</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LEGAXY -->
+<section id="why">
+  <div class="reveal">
+    <div class="section-eyebrow">Why Work Here</div>
+    <div class="section-title">More Than<br/>A <span style="background:var(--metal-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shineText 5s linear infinite">Job</span></div>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</section>
+
+<!-- OPEN ROLES -->
+<section id="roles">
+  <div class="roles-header">
+    <div class="reveal">
+      <div class="section-eyebrow">Opportunities</div>
+      <div class="section-title">Open Roles</div>
+    </div>
+    <div class="dept-tabs reveal" id="deptTabs"></div>
+  </div>
+  <div class="roles-grid" id="rolesGrid"></div>
+</section>
+
+<!-- INTERNSHIPS -->
+<section id="internships">
+  <div class="reveal">
+    <div class="section-eyebrow">Internship Programme</div>
+    <div class="section-title">Start Your<br/>Journey Here</div>
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--text-muted);max-width:520px;margin-top:8px">Every LegaXy leader started somewhere. Our internship programme gives you real responsibility from day one.</p>
+  </div>
+  <div class="internship-grid" id="internGrid"></div>
+</section>
+
+<!-- CULTURE -->
+<section id="culture">
+  <div class="culture-layout">
+    <div class="culture-text reveal-left" style="opacity:0;transform:translateX(-32px);transition:opacity .8s,transform .8s">
+      <div class="section-eyebrow">Culture</div>
+      <div class="section-title">How We<br/>Work</div>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--text-muted);margin-bottom:8px">Speed, creativity, ownership. We move fast, think big, and hold each other to the highest standard.</p>
+      <div class="culture-values" id="cultureValues"></div>
+    </div>
+    <div class="culture-visual reveal-right" style="opacity:0;transform:translateX(32px);transition:opacity .8s,transform .8s">
+      <div class="cv-frame span2">
+        <div class="cv-frame-inner"><div class="cv-ph-label">LEGAXY TEAM — AT WORK</div></div>
+      </div>
+      <div class="cv-frame">
+        <div class="cv-frame-inner"><div class="cv-ph-label">SHOOT DAY</div></div>
+      </div>
+      <div class="cv-frame">
+        <div class="cv-frame-inner"><div class="cv-ph-label">EVENT PRODUCTION</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section id="apply">
+  <div class="apply-layout">
+    <div class="apply-info reveal" style="opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s">
+      <div class="section-eyebrow">Apply Now</div>
+      <div class="section-title">Ready to Join?</div>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--text-muted);margin-bottom:8px">Tell us who you are and what you bring. We read every application — no automated rejections.</p>
+      <div class="apply-steps" id="applySteps"></div>
+    </div>
+    <div class="apply-form-wrap reveal" style="opacity:0;transform:translateY(28px);transition:opacity .8s .15s,transform .8s .15s">
+      <div id="formWrap">
+        <div class="form-title">Application Form</div>
+        <div class="form-sub">Full-time roles, internships, or general enquiries welcome.</div>
+        <form id="applyForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input class="form-input" type="text" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input class="form-input" type="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input class="form-input" type="tel" placeholder="+91 00000 00000">
+            </div>
+            <div class="form-group">
+              <label class="form-label">City</label>
+              <input class="form-input" type="text" placeholder="Delhi, Mumbai...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">LinkedIn / Portfolio URL</label>
+            <input class="form-input" type="url" placeholder="https://linkedin.com/in/yourname">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Why LegaXy? *</label>
+            <textarea class="form-textarea" placeholder="Tell us what excites you about LegaXy and what you'd bring to the team..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Previous Experience</label>
+            <textarea class="form-textarea" style="min-height:90px" placeholder="Relevant work experience, projects, or achievements..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit Application →</button>
+          <p class="form-note">We aim to respond within 7 working days.</p>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <span class="fs-icon">🏆</span>
+        <div class="fs-title">Application Received</div>
+        <p class="fs-sub">Thank you for applying to LegaXy. Our team will review your application and reach out within 7 working days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-ghost">LEGAXY</div>
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">Questions?</div>
+    <h2 class="cta-h">NOT SURE<br/>WHERE YOU FIT?</h2>
+    <p class="cta-sub">Drop us a message. We're always open to talent that doesn't fit a job description — we'll find the right place for you.</p>
+    <div class="cta-btns">
+      <a href="mailto:careers@legaxy.org" class="btn-primary">Email Us Directly →</a>
+      <a href="contact.html" class="btn-ghost">General Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 LegaXy. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="athletes.html">Athletes</a>
+    <a href="mailto:careers@legaxy.org">careers@legaxy.org</a>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════
+   DATA — Edit to add/remove roles
+═══════════════════════════════ */
+const WHY = [
+  { icon:'🏆', title:'Work at the Intersection of Sport & Culture', desc:'LegaXy sits at the crossroads of athlete management, content production, live events, and brand building. There\'s nothing else like it in India.' },
+  { icon:'🚀', title:'Ownership from Day One', desc:'No bureaucracy. If you have a good idea and the talent to execute it, you will be given the space and resources to make it real.' },
+  { icon:'🎬', title:'Access to Elite Athletes & Brands', desc:'Work directly with international cricketers, wrestling champions, and India\'s most exciting emerging stars — not behind the scenes, but alongside them.' },
+  { icon:'📈', title:'Build Something Generational', desc:'We are building the infrastructure for the next 20 years of Indian sport. Every person on the team is shaping that story.' },
+  { icon:'🌍', title:'Multi-Disciplinary Environment', desc:'Sports management, film production, live events, digital media, and brand strategy — all under one roof. Cross-pollination is expected and encouraged.' },
+  { icon:'🤝', title:'Culture of Excellence', desc:'We hold ourselves to the highest standard — in craft, in relationships, and in results. If you share that standard, you\'ll thrive here.' },
+];
+
+const DEPARTMENTS = ['All', 'Creative & Media', 'Sports & Athlete Management'];
+
+const ROLES = [
+  { id:'creative-strategy-intern', title:'Creative Strategy Intern', dept:'Creative & Media', location:'Delhi (Hybrid)', type:'Internship', desc:'Work alongside LegaXy\'s creative team on content strategy, athlete storytelling, and brand campaigns. Real work, real ownership, real impact.' },
+  { id:'sports-media-associate', title:'Sports Media Associate', dept:'Sports & Athlete Management', location:'Delhi', type:'Full Time', desc:'Bridge the worlds of athlete management and media — coordinating shoots, digital content, and brand touchpoints across LegaXy\'s elite roster.' },
+];
+
+const INTERNSHIPS = [
+  { num:'01', icon:'🎬', title:'Content & Production Intern', dept:'Creative & Media', desc:'Assist on shoots, edit content, support the studio team — real deliverables, not coffee runs.', perks:['Paid Stipend','Portfolio Work','Mentorship','Potential PPO'] },
+  { num:'02', icon:'🏏', title:'Sports Management Intern', dept:'Sports & Athlete Management', desc:'Work directly on athlete management tasks — scheduling, comms, brand brief reviews, and operations.', perks:['Athlete Access','Industry Exposure','Paid Stipend','Mentorship'] },
+  { num:'03', icon:'📡', title:'Events & Live Production Intern', dept:'Live & Events', desc:'Be on the ground at LegaXy Live events — from DPL matchdays to the LegaXy Awards. Real event management experience.', perks:['On-Ground Experience','Event Credits','Paid Stipend','Network Access'] },
+  { num:'04', icon:'📊', title:'Marketing & Brand Intern', dept:'Marketing & Brand', desc:'Support brand partnership pitches, social media strategy, and campaign reporting for the LegaXy ecosystem.', perks:['Paid Stipend','Brand Exposure','Campaign Ownership','Mentorship'] },
+  /* ── ADD MORE INTERNSHIPS BELOW ── */
+];
+
+const CULTURE_VALUES = [
+  { icon:'⚡', title:'Move With Urgency', desc:'Speed matters. We don\'t wait for permission — we act, iterate, and improve.' },
+  { icon:'🎯', title:'Obsess Over Quality', desc:'In every frame, every event, every pitch — the premium standard is non-negotiable.' },
+  { icon:'🤝', title:'Athlete-First Thinking', desc:'Every decision traces back to whether it\'s good for our athletes and good for sport.' },
+  { icon:'💡', title:'Creative Courage', desc:'The best ideas come from people who aren\'t afraid to propose something genuinely different.' },
+];
+
+const PROCESS_STEPS = [
+  { num:'01', title:'Submit Your Application', desc:'Fill in the form with your experience, motivation, and the role you\'re targeting.' },
+  { num:'02', title:'Initial Review', desc:'Our team reviews every application. Shortlisted candidates hear back within 7 days.' },
+  { num:'03', title:'Interview', desc:'A conversation with the relevant department lead — expect real questions about craft and approach.' },
+  { num:'04', title:'Offer', desc:'Successful candidates receive an offer. We move fast — no weeks of silence.' },
+];
+
+/* ═══════════════════════════════
+   RENDER
+═══════════════════════════════ */
+function renderWhy(){
+  document.getElementById('whyGrid').innerHTML=WHY.map(w=>`
+    <div class="why-card reveal" data-h="">
+      <span class="wc-icon">${w.icon}</span>
+      <div class="wc-title">${w.title}</div>
+      <div class="wc-desc">${w.desc}</div>
+      <div class="wc-ghost">${w.icon}</div>
+    </div>`).join('');
+}
+
+let activeDept='All';
+function renderDeptTabs(){
+  document.getElementById('deptTabs').innerHTML=DEPARTMENTS.filter(d=>d!=='Internships').map(d=>`
+    <button class="dept-tab ${d==='All'?'active':''}" onclick="setDept('${d}',this)">${d}</button>`).join('');
+}
+function setDept(dept,btn){
+  activeDept=dept;
+  document.querySelectorAll('.dept-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRoles();
+  initObserver();
+}
+function renderRoles(){
+  const filtered=activeDept==='All'?ROLES:ROLES.filter(r=>r.dept===activeDept);
+  const grid=document.getElementById('rolesGrid');
+  grid.innerHTML=filtered.map(r=>`
+    <a class="role-card reveal" href="#apply" data-h="">
+      <div class="role-card-left">
+        <div class="role-dept">${r.dept}</div>
+        <div class="role-title">${r.title}</div>
+        <div class="role-meta">
+          <span class="role-meta-item">${r.location}</span>
+          <span class="role-meta-item">${r.type}</span>
+        </div>
+      </div>
+      <div class="role-card-right">
+        <span class="role-type-badge">${r.type}</span>
+        <div class="role-arrow">→</div>
+      </div>
+    </a>`).join('')+`
+    <div class="role-add-slot">
+      <span class="ras-label">More roles coming soon — send a speculative application below</span>
+    </div>`;
+}
+
+function renderInternships(){
+  document.getElementById('internGrid').innerHTML=INTERNSHIPS.map(i=>`
+    <div class="intern-card reveal" data-h="">
+      <span class="ic-num">${i.num}</span>
+      <span class="ic-icon">${i.icon}</span>
+      <div class="ic-dept">${i.dept}</div>
+      <div class="ic-title">${i.title}</div>
+      <div class="ic-desc">${i.desc}</div>
+      <div class="ic-perks">${i.perks.map(p=>`<span class="ic-perk">${p}</span>`).join('')}</div>
+      <div class="ic-ghost">${i.icon}</div>
+    </div>`).join('');
+}
+
+function renderCulture(){
+  document.getElementById('cultureValues').innerHTML=CULTURE_VALUES.map(v=>`
+    <div class="cv-item" data-h="">
+      <span class="cv-icon">${v.icon}</span>
+      <div class="cv-body"><div class="cv-title">${v.title}</div><div class="cv-desc">${v.desc}</div></div>
+    </div>`).join('');
+}
+
+function renderApplySteps(){
+  document.getElementById('applySteps').innerHTML=PROCESS_STEPS.map(s=>`
+    <div class="astep">
+      <span class="as-num">${s.num}</span>
+      <div><div class="as-title">${s.title}</div><div class="as-desc">${s.desc}</div></div>
+    </div>`).join('');
+}
+
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+
+/* Cursor */
+const cx=document.getElementById('cx'),cr=document.getElementById('cr');
+document.addEventListener('mousemove',e=>{cx.style.top=e.clientY+'px';cx.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';cr.style.left=e.clientX+'px'});
+window.addEventListener('scroll',()=>document.getElementById('prog').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%');
+
+function initObserver(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>{el.classList.remove('in');obs.observe(el)});
+  // also handle the manual reveal-left/right
+  document.querySelectorAll('[style*="translateX"]').forEach(el=>{
+    const obs2=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateX(0)';obs2.unobserve(e.target)}})},{threshold:.1});
+    obs2.observe(el);
+  });
+}
+
+renderWhy();renderDeptTabs();renderRoles();renderInternships();renderCulture();renderApplySteps();
+setTimeout(initObserver,100);
+</script>
+</body>
+</html>
