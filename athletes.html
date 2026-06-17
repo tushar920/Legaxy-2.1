@@ -117,16 +117,39 @@ nav.scrolled{background:rgba(7,11,26,.97);backdrop-filter:blur(16px)}
 /* RESPONSIVE */
 @media(max-width:1024px){.roster-grid{grid-template-columns:repeat(2,1fr)}.roster-page{padding:100px 28px 60px}}
 @media(max-width:640px){
-  .roster-grid{grid-template-columns:1fr;gap:18px}
-  .roster-page{padding:90px 16px 48px}
-  .roster-title{font-size:clamp(28px,8vw,36px)}
-  .roster-sub{font-size:15px}
-  .ath-name{font-size:20px}
-  .ath-desc{font-size:13px;-webkit-line-clamp:3}
+  /* Grid: 2 cards per row */
+  .roster-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .roster-page{padding:80px 14px 48px}
+  .roster-title{font-size:clamp(24px,7vw,32px)}
+  .roster-sub{font-size:13px}
+  .ath-name{font-size:15px}
+  .ath-role{font-size:9px;letter-spacing:1px}
+  .ath-desc{font-size:11px;-webkit-line-clamp:2}
+  .ath-card{padding-bottom:10px}
+  .ath-img{height:180px}
+  .ig-badge{padding:3px 7px;font-size:9px}
+  /* Hide nav links, show hamburger */
+  .nav-links{display:none}
   .nav-right{display:none}
   body{cursor:auto!important}
   #cx,#cr{display:none!important}
   *{cursor:auto!important}
+  /* Hamburger */
+  #athHamburger{display:flex!important}
+  .hamburger span{display:block;width:22px;height:1px;background:#C8C8D0;transition:all .3s}
+  /* Mobile drawer */
+  .mobile-drawer{
+    display:none;position:fixed;top:0;right:0;width:78vw;max-width:320px;height:100dvh;
+    background:rgba(7,11,26,.98);backdrop-filter:blur(20px);
+    z-index:4000;padding:80px 28px 40px;border-left:1px solid rgba(188,82,37,.2);
+    flex-direction:column;gap:6px;overflow-y:auto;
+  }
+  .mobile-drawer.open{display:flex}
+  .mobile-drawer a{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#9A9AA4;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s}
+  .mobile-drawer a:hover,.mobile-drawer a.active{color:#BC5225}
+  .mobile-drawer .drawer-close{position:absolute;top:20px;right:20px;background:none;border:none;color:#9A9AA4;font-size:22px;cursor:pointer;padding:4px}
+  .drawer-overlay{display:none;position:fixed;inset:0;z-index:3999;background:rgba(0,0,0,.5)}
+  .drawer-overlay.open{display:block}
 }
 </style>
 </head>
@@ -163,6 +186,22 @@ nav.scrolled{background:rgba(7,11,26,.97);backdrop-filter:blur(16px)}
   </ul>
   <div class="nav-right">
   </div>
+  <button class="hamburger" id="athHamburger" style="display:none" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="drawer-overlay" id="athOverlay"></div>
+<nav class="mobile-drawer" id="athDrawer">
+  <button class="drawer-close" id="athClose">✕</button>
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About Us</a>
+  <a href="athletes.html" class="active">Talent</a>
+  <a href="studio.html">Studio</a>
+  <a href="live.html">Live</a>
+  <a href="learning.html">Learning</a>
+  <a href="capital.html">Capital</a>
+  <a href="wealth.html">Wealth</a>
+  <a href="team.html">Team</a>
+  <a href="media.html">Media &amp; Gallery</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <div class="roster-page">
@@ -206,31 +245,31 @@ window.addEventListener('scroll',()=>{
 
 /* ═══ ROSTER DATA ═══ */
 const ELITE=[
-  {n:'Harshit Rana',r:'Cricket · Fast Bowler',d:'A young Indian fast bowler known for his aggressive pace, sharp bounce, and fearless attitude on the field. Rising through domestic cricket and the IPL, he has quickly gained attention as one of India\'s promising next-generation pacers.',ig:'https://www.instagram.com/harshit_rana_06/',followers:'1.3M',posts:'136',following:'291',img:'Harshit.png'},
-  {n:'Yuzvendra Chahal',r:'Cricket · Leg-Spinner',d:'India\'s sharpest white-ball weapon. His ability to turn matches with a single over sets him apart as one of the world\'s premier leg-spinners.',ig:'https://www.instagram.com/yuzi_chahal23/',followers:'14.7M',posts:'1.2K',following:'227',img:'chahal.jpeg'},
-  {n:'Harbhajan Singh',r:'Cricket · India Legend',d:'400+ international wickets. The Turbanator redefined spin bowling for a generation and became one of India\'s most iconic sporting personalities.',ig:'https://www.instagram.com/harbhajan3/',followers:'11.7M',posts:'4.8K',following:'326',img:'harbhajan.jpeg'},
-  {n:'Bhuvneshwar Kumar',r:'Cricket · Swing Master',d:'A maestro of swing and seam. Pinpoint precision at the death, a cool head under pressure, and 200+ IPL wickets to his name.',ig:'https://www.instagram.com/imbhuvi/',followers:'8.9M',posts:'523',following:'142',img:'bhuvneshwar.jpeg'},
-  {n:'Umesh Yadav',r:'Cricket · Powerplay Specialist',d:'Raw pace, a dangerous new-ball spell, and an aggressive mindset that makes him lethal in the powerplay. A proven match-winner across formats.',ig:'https://www.instagram.com/umeshyaadav/',followers:'3.5M',posts:'380',following:'198',img:'umesh.jpeg'},
-  {n:'Ishant Sharma',r:'Cricket · 105 Tests',d:'India\'s most experienced fast bowler of the modern era. His towering frame and sharp bouncer have unsettled the best batters in the world.',ig:'https://www.instagram.com/ishant.sharma29/',followers:'3.8M',posts:'462',following:'215',img:'ishant.jpeg'},
-  {n:'Deepak Hooda',r:'Cricket · All-Rounder',d:'A versatile all-rounder with destructive power-hitting ability and handy medium-pace. A proven IPL performer and international contributor.',ig:'https://instagram.com/deepakhooda51',followers:'1.5M',posts:'298',following:'412',img:'hooda.webp'},
-  {n:'Puja Tomar',r:'Mixed Martial Arts',d:'A trailblazer in Indian MMA. First Indian woman to win a UFC fight — combining elite technique, grit, and breakthrough performances on the global stage.',ig:'https://www.instagram.com/tomar_puja/',followers:'245K',posts:'189',following:'342',img:'puja.jpeg'},
-  {n:'Sangram Singh',r:'Wrestling · Champion',d:'A decorated wrestling champion and one of India\'s most inspiring sporting personalities — embodying strength, discipline, and everything LegaXy stands for.',ig:'https://www.instagram.com/sangramsingh_wrestler/',followers:'1.1M',posts:'2.1K',following:'518',img:'sangram.webp'},
-  {n:'Nitu Chandra Srivastava',r:'Sports & Entertainment',d:'Bridging the worlds of sport and entertainment. Represented by LegaXy for high-impact crossover engagements and brand collaborations.',ig:'https://www.instagram.com/nituchandrasrivastava/',followers:'1.8M',posts:'3.2K',following:'387',img:'neetu.jpeg'},
-  {n:'Ulhas KS',r:'Basketball · India',d:'A leading face of Indian basketball. Managed by LegaXy for sustained on-court growth and brand partnerships across the sporting ecosystem.',ig:'https://www.instagram.com/himmatsingh89/',followers:'',posts:'',following:'',img:'ulhas.webp'},
-  {n:'Niranjan Mukundan',r:'Para-Swimming · India',d:'A celebrated para-swimmer whose journey embodies resilience and excellence. Multiple international medals and a proud ambassador for inclusive sport.',ig:'https://www.instagram.com/niranjan_mukund/',followers:'42K',posts:'280',following:'510',img:'niranjan.jpeg'},
-  {n:'Harshal Patel',r:'Cricket · Death Bowling',d:'The art of the slower ball reinvented. His variety at the death makes him one of the IPL\'s finest and most feared closers across seasons.',ig:'https://www.instagram.com/harshalvp23/',followers:'3.2M',posts:'312',following:'189',img:'harshal.webp'},
-  {n:'Rahul Tewatia',r:'Cricket · Finisher',d:'The man who turns the impossible into inevitable. Author of some of T20 cricket\'s most dramatic finishes — thrives when stakes are highest.',ig:'https://www.instagram.com/rahultewatia20/',followers:'1.8M',posts:'167',following:'298',img:'tewatia.jpeg'},
-  {n:'Shashank Singh',r:'Cricket · Power Hitter',d:'A middle-order destroyer with one of the highest strike rates in the IPL death overs. Explosive, fearless, and increasingly dominant.',ig:'https://www.instagram.com/shashanksingh027/',followers:'520K',posts:'89',following:'245',img:'shashank.webp'},
+  {n:'Harshit Rana',r:'Cricket · Fast Bowler',d:'A young Indian fast bowler known for his aggressive pace, sharp bounce, and fearless attitude on the field. Rising through domestic cricket and the IPL, he has quickly gained attention as one of India\'s promising next-generation pacers.',ig:'https://www.instagram.com/harshit_rana_06/',followers:'1M',posts:'136',following:'324',img:'Harshit.png'},
+  {n:'Yuzvendra Chahal',r:'Cricket · Leg-Spinner',d:'India\'s sharpest white-ball weapon. His ability to turn matches with a single over sets him apart as one of the world\'s premier leg-spinners.',ig:'https://www.instagram.com/yuzi_chahal23/',followers:'11M',posts:'2K',following:'598',img:'chahal.jpeg'},
+  {n:'Harbhajan Singh',r:'Cricket · India Legend',d:'400+ international wickets. The Turbanator redefined spin bowling for a generation and became one of India\'s most iconic sporting personalities.',ig:'https://www.instagram.com/harbhajan3/',followers:'18M',posts:'2.7K',following:'739',img:'harbhajan.jpeg'},
+  {n:'Bhuvneshwar Kumar',r:'Cricket · Swing Master',d:'A maestro of swing and seam. Pinpoint precision at the death, a cool head under pressure, and 200+ IPL wickets to his name.',ig:'https://www.instagram.com/imbhuvi/',followers:'6M',posts:'229',following:'100',img:'bhuvneshwar.jpeg'},
+  {n:'Umesh Yadav',r:'Cricket · Powerplay Specialist',d:'Raw pace, a dangerous new-ball spell, and an aggressive mindset that makes him lethal in the powerplay. A proven match-winner across formats.',ig:'https://www.instagram.com/umeshyaadav/',followers:'2M',posts:'1.1K',following:'198',img:'umesh.jpeg'},
+  {n:'Ishant Sharma',r:'Cricket · 105 Tests',d:'India\'s most experienced fast bowler of the modern era. His towering frame and sharp bouncer have unsettled the best batters in the world.',ig:'https://www.instagram.com/ishant.sharma29/',followers:'2M',posts:'732',following:'90',img:'ishant.jpeg'},
+  {n:'Deepak Hooda',r:'Cricket · All-Rounder',d:'A versatile all-rounder with destructive power-hitting ability and handy medium-pace. A proven IPL performer and international contributor.',ig:'https://www.instagram.com/deepakhooda30/',followers:'511K',posts:'271',following:'93',img:'hooda.webp'},
+  {n:'Puja Tomar',r:'Mixed Martial Arts',d:'A trailblazer in Indian MMA. First Indian woman to win a UFC fight — combining elite technique, grit, and breakthrough performances on the global stage.',ig:'https://www.instagram.com/tomar_puja/',followers:'486K',posts:'425',following:'503',img:'puja.jpeg'},
+  {n:'Sangram Singh',r:'Wrestling · Champion',d:'A decorated wrestling champion and one of India\'s most inspiring sporting personalities — embodying strength, discipline, and everything LegaXy stands for.',ig:'https://www.instagram.com/sangramsingh_wrestler/',followers:'11M',posts:'2.7K',following:'610',img:'sangram.webp'},
+  {n:'Nitu Chandra Srivastava',r:'Sports & Entertainment',d:'Bridging the worlds of sport and entertainment. Represented by LegaXy for high-impact crossover engagements and brand collaborations.',ig:'https://www.instagram.com/nituchandrasrivastava/',followers:'2M',posts:'3.1K',following:'1.1K',img:'neetu.jpeg'},
+  {n:'Ulhas KS',r:'Basketball · India',d:'A leading face of Indian basketball. Managed by LegaXy for sustained on-court growth and brand partnerships across the sporting ecosystem.',ig:'https://www.instagram.com/ks_ulhas/',followers:'35K',posts:'275',following:'154',img:'ulhas.webp'},
+  {n:'Niranjan Mukundan',r:'Para-Swimming · India',d:'A celebrated para-swimmer whose journey embodies resilience and excellence. Multiple international medals and a proud ambassador for inclusive sport.',ig:'https://www.instagram.com/niranjan_mukund/',followers:'8K',posts:'911',following:'1.6K',img:'niranjan.jpeg'},
+  {n:'Harshal Patel',r:'Cricket · Death Bowling',d:'The art of the slower ball reinvented. His variety at the death makes him one of the IPL\'s finest and most feared closers across seasons.',ig:'https://www.instagram.com/harshalvp23/',followers:'477K',posts:'259',following:'270',img:'harshal.webp'},
+  {n:'Rahul Tewatia',r:'Cricket · Finisher',d:'The man who turns the impossible into inevitable. Author of some of T20 cricket\'s most dramatic finishes — thrives when stakes are highest.',ig:'https://www.instagram.com/rahultewatia20/',followers:'1M',posts:'397',following:'405',img:'tewatia.jpeg'},
+  {n:'Shashank Singh',r:'Cricket · Power Hitter',d:'A middle-order destroyer with one of the highest strike rates in the IPL death overs. Explosive, fearless, and increasingly dominant.',ig:'https://www.instagram.com/shashanksingh027/',followers:'573K',posts:'276',following:'308',img:'shashank.webp'},
   {n:'Himmat Singh',r:'Cricket',d:'A dependable middle-order batter with domestic pedigree. Part of the LegaXy roster — managed for commercial growth and brand partnerships.',ig:'https://www.instagram.com/himmatsingh89/',followers:'',posts:'',following:'',img:'himmat.jpeg'},
-  {n:'Jayant Yadav',r:'Cricket · Spin All-Rounder',d:'A spin-bowling all-rounder with international experience. Handy with the bat and capable of turning matches with his off-spin.',ig:'https://www.instagram.com/jyadav19/',followers:'280K',posts:'156',following:'312',img:'jayant.webp'},
-  {n:'Sai Kishore',r:'Cricket · Left-Arm Spinner',d:'Accuracy, variation, and sharp bounce — one of cricket\'s most complete left-arm spinners, suffocating run rates in the middle overs.',ig:'https://www.instagram.com/saik_99/',followers:'380K',posts:'134',following:'276',img:'sai.jpg'},
-  {n:'Umran Malik',r:'Cricket · Express Pace',d:'One of Indian cricket\'s fastest bowlers — explosive pace that has clocked 150+ kmph consistently. A rapid trajectory into the international setup.',ig:'https://instagram.com/umabornalik02',followers:'1.9M',posts:'98',following:'187',img:'umran.jpeg'},
+  {n:'Jayant Yadav',r:'Cricket · Spin All-Rounder',d:'A spin-bowling all-rounder with international experience. Handy with the bat and capable of turning matches with his off-spin.',ig:'https://www.instagram.com/jyadav19/',followers:'103K',posts:'175',following:'396',img:'jayant.webp'},
+  {n:'Sai Kishore',r:'Cricket · Left-Arm Spinner',d:'Accuracy, variation, and sharp bounce — one of cricket\'s most complete left-arm spinners, suffocating run rates in the middle overs.',ig:'https://www.instagram.com/saik_99/',followers:'392K',posts:'630',following:'1K',img:'sai.jpg'},
+  {n:'Umran Malik',r:'Cricket · Express Pace',d:'One of Indian cricket\'s fastest bowlers — explosive pace that has clocked 150+ kmph consistently. A rapid trajectory into the international setup.',ig:'https://www.instagram.com/umran_malik_1/',followers:'2M',posts:'255',following:'237',img:'umran.jpeg'},
   {n:'Mayank Dagar',r:'Cricket · Left-Arm Spinner',d:'A left-arm spinning all-rounder bringing control and bite. A rising asset in IPL cricket with improving consistency season on season.',ig:'https://www.instagram.com/mayank.dagar/',followers:'',posts:'',following:'',img:'mayankdagar.jpeg'},
   {n:'Vansh Bedi',r:'Cricket · Top Order',d:'Son of the legendary Bishan Bedi, Vansh is carving his own legacy. Textbook technique and elite temperament — a future cornerstone batter.',ig:'https://www.instagram.com/vanshbedi_/',followers:'',posts:'',following:'',img:'vansh.png'},
   {n:'Vathsal Govind Sharma',r:'Cricket · India U-19',d:'A technically refined batter with outstanding discipline and clarity of thought at the crease. One of India\'s brightest youth prospects.',ig:'https://www.instagram.com/vathsal_02/',followers:'',posts:'',following:'',img:'vathsal.jpeg'},
   {n:'Mayank Rawat',r:'Cricket · Power Batter',d:'A destructive stroke-maker with the X-factor to dismantle any bowling attack. His domestic numbers mark him as a future IPL regular.',ig:'https://www.instagram.com/mayankrawat03/',followers:'',posts:'',following:'',img:'mayank.jpeg'},
   {n:'Parth Vats',r:'Cricket',d:'Part of the LegaXy roster — managed for competitive cricketing growth and brand partnerships across the sports ecosystem.',ig:'https://www.instagram.com/parthvats017/',followers:'',posts:'',following:'',img:'parth.jpeg'},
-  {n:'Yashwardhan Dalal',r:'Cricket',d:'Part of the LegaXy roster — managed for competitive cricketing growth and high-impact brand collaborations.',ig:'https://www.instagram.com/yashvardhan.dalal28/',followers:'',posts:'',following:'',img:'yadhvardhan.jpeg'},
+  {n:'Yashwardhan Dalal',r:'Cricket',d:'Part of the LegaXy roster — managed for competitive cricketing growth and high-impact brand collaborations.',ig:'https://www.instagram.com/yashvardhan.dalal28/',followers:'',posts:'',following:'',img:'yashvardhan.jpeg'},
   {n:'Tishant Dabla',r:'Cricket · All-Rounder',d:'A genuine match-winner with both bat and ball. All-round consistency at youth level is turning heads at the national selectors\' level.',ig:'https://www.instagram.com/tishantdabla/',followers:'',posts:'',following:'',img:'tishant.jpeg'},
   {n:'Sanat Sangwan',r:'Cricket',d:'Part of the LegaXy roster — managed for competitive cricketing growth and sustained brand partnerships.',ig:'https://www.instagram.com/sanat.sangwan/',followers:'',posts:'',following:'',img:'sanat.png'},
 ];
@@ -298,6 +337,23 @@ if(urlType==='emerging'||urlType==='rising'){
 } else {
   showSection('elite');
 }
+// Mobile hamburger
+(function(){
+  var ham=document.getElementById('athHamburger'),
+      drawer=document.getElementById('athDrawer'),
+      overlay=document.getElementById('athOverlay'),
+      cls=document.getElementById('athClose');
+  if(!ham)return;
+  function isMob(){return window.innerWidth<=640}
+  function toggle(open){
+    drawer.classList.toggle('open',open);
+    overlay.classList.toggle('open',open);
+  }
+  ham.addEventListener('click',function(){toggle(!drawer.classList.contains('open'))});
+  overlay.addEventListener('click',function(){toggle(false)});
+  if(cls)cls.addEventListener('click',function(){toggle(false)});
+  window.addEventListener('resize',function(){if(!isMob())toggle(false)});
+})();
 </script>
 </body>
 </html>
