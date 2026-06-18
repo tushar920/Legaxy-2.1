@@ -104,7 +104,7 @@ nav.scrolled{background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bott
 ════════════════════════════════════════ */
 #hero{
   min-height:70vh;
-  display:flex;flex-direction:column;justify-content:flex-end;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:72px 72px 80px;
   position:relative;overflow:hidden;
   background:var(--ink);
@@ -163,13 +163,13 @@ nav.scrolled{background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bott
 }
 .hero-play-btn:hover{background:rgba(188,82,37,.3);transform:translate(-50%,-50%) scale(1.1)}
 .hero-play-btn::after{content:'▶';color:var(--orange);font-size:18px;margin-left:3px}
-.hero-content{position:relative;z-index:10;max-width:640px}
+.hero-content{position:relative;z-index:10;max-width:700px;margin:0 auto;text-align:center}
 .hero-badge{
   font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;
-  color:rgba(255,179,122,.85);display:flex;align-items:center;gap:14px;margin-bottom:18px;
+  color:rgba(255,179,122,.85);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;
   animation:hFade .9s .2s both;
 }
-.hero-badge::before{content:'';width:36px;height:1px;background:var(--orange)}
+.hero-badge::before{content:'●';color:var(--orange);font-size:6px;background:none;width:auto}
 .hero-h1{
   font-family:'Rajdhani',sans-serif;font-weight:700;
   font-size:clamp(52px,8.5vw,112px);
@@ -181,9 +181,9 @@ nav.scrolled{background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bott
 .hero-sub{
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;
   color:rgba(240,238,234,.75);margin-top:18px;line-height:1.6;
-  animation:hFade .9s .6s both;
+  animation:hFade .9s .6s both;text-align:center;
 }
-.hero-ctas{display:flex;gap:14px;margin-top:36px;animation:hFade .9s .75s both;flex-wrap:wrap}
+.hero-ctas{display:flex;gap:14px;margin-top:36px;animation:hFade .9s .75s both;flex-wrap:wrap;justify-content:center}
 .hero-scroll-line{
   position:absolute;bottom:32px;right:72px;z-index:10;
   display:flex;flex-direction:column;align-items:center;gap:10px;
