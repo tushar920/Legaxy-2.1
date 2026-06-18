@@ -47,7 +47,7 @@ body:has(a:hover,button:hover,[data-h]:hover) #cr{width:48px;height:48px;border-
 ════════════════════════════════════ */
 nav{position:fixed;top:0;inset-inline:0;z-index:2000;display:flex;justify-content:space-between;align-items:center;padding:0 40px;height:72px;background:linear-gradient(to bottom,rgba(7,11,26,.97) 0%,rgba(7,11,26,0) 100%);transition:background .4s}
 nav.scrolled{background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.04)}
-.logo{display:flex;align-items:center;text-decoration:none;height:52px}
+.logo{display:flex;align-items:center;text-decoration:none;height:88px}
 .logo img{height:100%;width:auto;object-fit:contain;display:block;filter:brightness(1.15)}
 .logo-text-fallback{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFF;display:none;align-items:center}
 .logo-x-fb{background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -98,7 +98,7 @@ nav.scrolled{background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bott
 /* ════════════════════════════════════
    HERO
 ════════════════════════════════════ */
-#hero{min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:72px 72px 0;position:relative;overflow:hidden;background:var(--ink)}
+#hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:72px 72px 0;position:relative;overflow:hidden;background:var(--ink)}
 .hero-bg-glow{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 90% 70% at 60% 25%,rgba(188,82,37,.09) 0%,transparent 55%),radial-gradient(ellipse 40% 40% at 10% 85%,rgba(188,82,37,.05) 0%,transparent 50%)}
 .hero-scan-lines{position:absolute;inset:0;z-index:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(188,82,37,.015) 3px,rgba(188,82,37,.015) 4px);pointer-events:none}
 .hero-grain{position:absolute;inset:0;z-index:1;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
@@ -114,9 +114,9 @@ nav.scrolled{background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bott
 .hem-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;color:#FFF;line-height:1.1}
 .hem-loc{font-size:11px;color:var(--text-dim);margin-top:3px;font-style:italic;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
 
-.hero-content{position:relative;z-index:10;max-width:700px;padding-bottom:0}
-.hero-badge{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:rgba(255,179,122,.85);display:flex;align-items:center;gap:14px;margin-bottom:18px;animation:heroFade .9s .2s both}
-.hero-badge::before{content:'';width:36px;height:1px;background:var(--orange)}
+.hero-content{position:relative;z-index:10;max-width:700px;padding-bottom:0;margin:0 auto;text-align:center}
+.hero-badge{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:rgba(255,179,122,.85);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;animation:heroFade .9s .2s both}
+.hero-badge::before{content:'●';color:var(--orange);font-size:6px;background:none;width:auto}
 .hero-h1{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(52px,8.5vw,112px);line-height:.88;letter-spacing:-2px;color:#FFF;text-shadow:0 2px 32px rgba(0,0,0,.5);animation:heroFade .9s .4s both}
 .hero-sub{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;color:rgba(240,238,234,.75);margin-top:18px;line-height:1.6;animation:heroFade .9s .6s both}
 .hero-ctas{display:flex;gap:14px;margin-top:36px;animation:heroFade .9s .75s both;flex-wrap:wrap}
