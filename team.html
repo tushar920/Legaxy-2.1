@@ -31,11 +31,11 @@ body:has(a:hover,button:hover,.team-card:hover) #cr{width:44px;height:44px;borde
 /* NAV */
 nav{position:fixed;top:0;inset-inline:0;z-index:2000;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;padding:0 40px;height:72px;background:rgba(7,11,26,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05)}
 nav.scrolled{background:rgba(7,11,26,.99)}
-.logo{display:flex;align-items:center;height:88px;text-decoration:none;flex-shrink:0}
+.logo{display:flex;align-items:center;height:70px;text-decoration:none;flex-shrink:0}
+nav ul{display:flex;gap:0;list-style:none;align-items:center;flex-shrink:1;min-width:0}
 .logo img{height:100%;width:auto;object-fit:contain;filter:brightness(1.15)}
 .logo-text-fallback{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFF;display:none}
 .logo-x{background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-nav ul{display:flex;gap:0;list-style:none;align-items:center;flex-shrink:1;min-width:0}
 nav ul li{position:relative;flex-shrink:0}
 nav ul a{display:block;padding:0 11px;height:72px;line-height:72px;font-size:13px;letter-spacing:1.8px;text-transform:uppercase;color:var(--chrome-dim);text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:600;transition:color .3s;white-space:nowrap}
 nav ul a:hover,nav ul a.active{color:var(--orange)}
@@ -45,6 +45,10 @@ nav ul a:hover,nav ul a.active{color:var(--orange)}
 .nav-has-drop:hover .nav-drop{display:block}
 .nav-drop a{display:block;padding:10px 20px;height:auto;line-height:1.3;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--chrome-dim);text-decoration:none;transition:color .2s,background .2s}
 .nav-drop a:hover{color:var(--orange);background:rgba(188,82,37,.08)}
+/* Mobile drawer + overlay hidden by default (desktop) */
+.team-drawer{display:none}
+.drawer-bg{display:none}
+#teamHam{display:none}
 
 /* HEADER */
 header{padding:140px 72px 70px;text-align:center;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(188,82,37,.12),transparent 65%);border-bottom:1px solid rgba(255,255,255,.04)}
