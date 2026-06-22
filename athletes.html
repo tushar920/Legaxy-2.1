@@ -24,10 +24,10 @@ body{background:var(--ink);color:var(--text);font-family:'Helvetica Neue',Helvet
 #prog{position:fixed;top:0;left:0;height:2px;background:var(--metal);z-index:9999;width:0}
 
 /* NAV */
-nav{position:fixed;top:0;inset-inline:0;z-index:2000;display:flex;justify-content:space-between;align-items:center;padding:0 40px;height:72px;background:linear-gradient(to bottom,rgba(7,11,26,.97),rgba(7,11,26,.85));border-bottom:1px solid rgba(255,255,255,.04);overflow:hidden;flex-wrap:nowrap}
+nav{position:fixed;top:0;inset-inline:0;z-index:2000;display:flex;justify-content:space-between;align-items:center;padding:0 40px;height:72px;background:linear-gradient(to bottom,rgba(7,11,26,.97),rgba(7,11,26,.85));border-bottom:1px solid rgba(255,255,255,.04);flex-wrap:nowrap}
 nav.scrolled{background:rgba(7,11,26,.97);backdrop-filter:blur(16px)}
-.logo{display:flex;align-items:center;height:88px;text-decoration:none}
-.logo img{height:44px;object-fit:contain}
+.logo{display:flex;align-items:center;height:88px;text-decoration:none;flex-shrink:0}
+.logo img{height:100%;width:auto;object-fit:contain}
 .logo-text-fallback{display:none;align-items:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;letter-spacing:6px;color:var(--chrome)}
 .logo-x-fb{color:var(--orange)}
 .nav-links{display:flex;list-style:none;height:72px;align-items:center;gap:0}
@@ -46,6 +46,10 @@ nav.scrolled{background:rgba(7,11,26,.97);backdrop-filter:blur(16px)}
 .nav-type-btn.active{background:var(--orange);color:#FFF}
 .nav-btn-link{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);text-decoration:none;border:1px solid rgba(188,82,37,.5);padding:8px 16px;transition:background .3s,color .3s}
 .nav-btn-link:hover{background:var(--orange);color:#FFF}
+/* Mobile drawer + overlay hidden by default (desktop) */
+.mobile-drawer{display:none}
+.drawer-overlay{display:none}
+#athHamburger{display:none}
 
 /* ROSTER PAGE */
 .roster-page{padding:110px 48px 80px;max-width:1360px;margin:0 auto}
