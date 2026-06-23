@@ -536,6 +536,92 @@ a.feat:hover{border-color:rgba(188,82,37,.5);color:#fff}
   .pil-stats{gap:32px}
 }
 
+/* ════════════════════════════════════
+   STRYD CONTENT SECTIONS
+════════════════════════════════════ */
+.stryd-section{padding:100px 72px;border-top:1px solid rgba(255,255,255,.04)}
+.stryd-section.alt{background:rgba(12,17,36,.5)}
+.stryd-inner{max-width:1200px;margin:0 auto}
+.stryd-eyebrow{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:14px}
+.stryd-eyebrow::before{content:'';width:24px;height:1px;background:var(--orange)}
+.stryd-h2{font-family:'Rajdhani',sans-serif;font-size:clamp(32px,4vw,56px);font-weight:700;line-height:1.05;letter-spacing:-0.5px;color:#FFF;margin-bottom:28px}
+.stryd-lead{font-size:18px;line-height:1.75;color:rgba(240,238,234,.75);max-width:840px;margin-bottom:18px}
+.stryd-body{font-size:15px;line-height:1.75;color:var(--text-muted);max-width:840px;margin-bottom:10px}
+.stryd-closing{font-size:15px;line-height:1.65;color:rgba(255,179,122,.7);font-style:italic;margin-top:16px}
+.stryd-block{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-left:2px solid var(--orange);padding:36px 40px;margin-top:48px}
+.stryd-block-title{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FFF;margin-bottom:18px}
+.stryd-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.stryd-list li{font-size:15px;line-height:1.65;color:var(--text-muted);padding-left:20px;position:relative}
+.stryd-list li::before{content:'→';position:absolute;left:0;color:var(--orange);font-size:12px;top:2px}
+.stryd-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.stryd-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);padding:32px 36px}
+.stryd-card-title{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.stryd-why{margin-top:48px}
+.stryd-why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:18px}
+.stryd-why-item{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:18px 20px;font-size:14px;color:var(--text-muted);line-height:1.6}
+.stryd-num{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--orange);flex-shrink:0;padding-top:2px}
+.stryd-steps{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+.stryd-step{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(188,82,37,.07);border:1px solid rgba(188,82,37,.2);padding:20px 24px;flex:1;min-width:160px}
+.step-num{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--orange);line-height:1}
+.step-label{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#FFF;margin-top:8px;line-height:1.3}
+.step-arrow{color:var(--orange);font-size:18px;flex-shrink:0}
+
+/* ════════════════════════════════════
+   CALCULATORS
+════════════════════════════════════ */
+.calc-tabs{display:flex;gap:4px;margin-bottom:32px;flex-wrap:wrap}
+.calc-tab{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--chrome-dim);padding:11px 24px;cursor:pointer;transition:all .3s}
+.calc-tab:hover{color:var(--orange);border-color:rgba(188,82,37,.3)}
+.calc-tab.active{background:rgba(188,82,37,.12);border-color:var(--orange);color:var(--orange)}
+.calc-panel{display:none}
+.calc-panel.active{display:block}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.calc-inputs{display:flex;flex-direction:column;gap:20px}
+.calc-field label{display:block;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--chrome-dim);margin-bottom:8px}
+.calc-field input[type=range]{width:100%;accent-color:var(--orange);height:3px;cursor:pointer}
+.calc-val{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#FFF;margin-top:6px}
+.calc-results{background:rgba(188,82,37,.06);border:1px solid rgba(188,82,37,.2);padding:24px 28px;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-muted)}
+.calc-result-row strong{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:#FFF}
+.calc-result-row.total{padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+.calc-result-row.total strong{font-size:20px;background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.calc-chart-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+.calc-chart-wrap canvas{max-width:280px}
+.calc-legend{display:flex;gap:20px}
+.leg-item{display:flex;align-items:center;gap:7px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--chrome-dim)}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.leg-dot.invested{background:rgba(188,82,37,.6)}
+.leg-dot.returns{background:var(--orange)}
+.calc-year-table{width:100%;max-height:220px;overflow-y:auto;font-size:12px}
+.calc-year-table table{width:100%;border-collapse:collapse}
+.calc-year-table th{font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:6px 8px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
+.calc-year-table td{padding:6px 8px;color:var(--text-muted);border-bottom:1px solid rgba(255,255,255,.03)}
+.calc-year-table tr:hover td{color:#FFF;background:rgba(188,82,37,.04)}
+
+/* ════════════════════════════════════
+   FAQ
+════════════════════════════════════ */
+.faq-list{display:flex;flex-direction:column;gap:0;margin-top:36px}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:22px 0;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:1px;color:#FFF;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .3s}
+.faq-q:hover{color:var(--orange)}
+.faq-q.open{color:var(--orange)}
+.faq-icon{font-size:20px;font-weight:300;transition:transform .3s;flex-shrink:0;margin-left:12px}
+.faq-q.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:15px;line-height:1.75;color:var(--text-muted);max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.23,1,.32,1),padding .3s}
+.faq-a.open{max-height:300px;padding-bottom:20px}
+
+@media(max-width:900px){
+  .stryd-2col,.calc-grid{grid-template-columns:1fr}
+  .stryd-steps{flex-direction:column}
+  .step-arrow{transform:rotate(90deg)}
+  .stryd-section{padding:60px 24px}
+}
+@media(max-width:600px){
+  .stryd-why-grid{grid-template-columns:1fr}
+  .calc-tabs{gap:6px}
+  .calc-tab{font-size:9px;padding:9px 14px}
+}
 </style>
 </head>
 <body>
@@ -591,23 +677,343 @@ a.feat:hover{border-color:rgba(188,82,37,.5);color:#fff}
   </div>
 </section>
 
-<!-- ══════ IN DEVELOPMENT ══════ -->
-<section class="pil-section center">
-  <div class="pil-head center reveal">
-    <div class="section-eyebrow">Stryd</div>
-    <div class="section-title">In <span class="metal-text">Development.</span></div>
+<!-- ══════ NRI SERVICES ══════ -->
+<section class="stryd-section" id="nri">
+  <div class="stryd-inner">
+    <div class="stryd-eyebrow reveal">NRI Services</div>
+    <h2 class="stryd-h2 reveal">Managing Wealth <span class="metal-text">Across Borders.</span></h2>
+    <p class="stryd-lead reveal">Managing finances across countries comes with unique challenges. Regulations, taxation, repatriation rules, and investment restrictions make financial planning for Non Resident Indians more complex than for resident investors.</p>
+    <p class="stryd-lead reveal">At STRYD, we help NRIs navigate Indian investments with clarity and confidence. Our NRI services are designed to simplify investing in India while ensuring compliance with regulatory guidelines and alignment with your long-term financial goals.</p>
+    <p class="stryd-body reveal">Foreign investments in India are governed by policies issued by the Government of India and regulated under FEMA. These policies allow NRIs and Persons of Indian Origin to invest in a wide range of financial instruments under permitted routes, subject to applicable rules. STRYD assists you in understanding these regulations and structuring your investments accordingly.</p>
+
+    <div class="stryd-block reveal">
+      <div class="stryd-block-title">Our NRI Advisory Approach</div>
+      <p class="stryd-body">We provide structured guidance to NRIs looking to build, manage, and preserve wealth in India. Our advisory focuses on combining regulatory compliance with goal-based investment planning.</p>
+      <ul class="stryd-list">
+        <li>Investment planning aligned with your global income and Indian goals.</li>
+        <li>Guidance on repatriable and non-repatriable investment options.</li>
+        <li>Mutual fund and fixed income investment advisory.</li>
+        <li>Tax-efficient investment structuring.</li>
+        <li>Long-term wealth creation and portfolio monitoring.</li>
+        <li>Digital access to portfolio tracking and reporting.</li>
+      </ul>
+      <p class="stryd-closing">We ensure your Indian investments remain simple, transparent, and aligned with your financial priorities.</p>
+    </div>
+
+    <div class="stryd-2col reveal">
+      <div class="stryd-card">
+        <div class="stryd-card-title">Who is Considered an NRI</div>
+        <p class="stryd-body">A Non Resident Indian is an Indian citizen who stays outside India for employment, business, or any purpose that indicates an indefinite period of stay abroad. This includes:</p>
+        <ul class="stryd-list">
+          <li>Indian citizens working abroad with foreign governments or international organizations.</li>
+          <li>Individuals deputed overseas by Indian government bodies or public sector undertakings.</li>
+        </ul>
+        <p class="stryd-body" style="margin-top:12px">An NRI becomes a resident in India only when returning for employment, business, or any purpose indicating long-term stay. Short visits for holidays or personal reasons do not change residential status.</p>
+      </div>
+      <div class="stryd-card">
+        <div class="stryd-card-title">Persons of Indian Origin</div>
+        <p class="stryd-body">For investment and banking purposes, a foreign citizen is treated as a Person of Indian Origin if:</p>
+        <ul class="stryd-list">
+          <li>They previously held an Indian passport.</li>
+          <li>Either parent or grandparent was a citizen of India under the Constitution or Citizenship Act.</li>
+          <li>The spouse of an Indian citizen or Person of Indian Origin, subject to permitted joint investment rules.</li>
+        </ul>
+        <p class="stryd-body" style="margin-top:12px">STRYD assists both NRIs and Persons of Indian Origin in understanding eligibility and structuring investments accordingly.</p>
+      </div>
+    </div>
+
+    <div class="stryd-why reveal">
+      <div class="stryd-block-title">Why Choose STRYD for NRI Services</div>
+      <div class="stryd-why-grid">
+        <div class="stryd-why-item"><span class="stryd-num">01</span><span>Clear guidance on Indian investment regulations.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">02</span><span>Goal-based planning aligned with global financial responsibilities.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">03</span><span>Focus on tax efficiency and long-term wealth creation.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">04</span><span>Simple digital access to portfolios and reporting.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">05</span><span>Transparent advisory with disciplined investment processes.</span></div>
+      </div>
+    </div>
   </div>
-  <div class="soon-panel reveal">
-    <span class="sp-mark">Coming Soon</span>
-    <p class="sp-text">LegaXy Wealth (Stryd) is being shaped together with our leadership team. Detailed content for this vertical is on its way.</p>
+</section>
+
+<!-- ══════ FINANCIAL PLANNING ══════ -->
+<section class="stryd-section alt" id="financial-planning">
+  <div class="stryd-inner">
+    <div class="stryd-eyebrow reveal">Financial Planning</div>
+    <h2 class="stryd-h2 reveal">A Structured Path to <span class="metal-text">Your Goals.</span></h2>
+    <p class="stryd-lead reveal">Financial Planning is a structured approach to achieving your life goals through smart and disciplined management of your finances. Your goals may include building long-term wealth, planning for retirement, funding your child's education, buying a home, or creating financial security for your family.</p>
+    <p class="stryd-body reveal">At STRYD, financial planning begins with understanding your complete financial picture. We assess where you stand today, where you want to be in the future, and how to bridge that gap with a clear, goal-based strategy. Financial planning is not about chasing short-term returns. It is about clarity, discipline, and staying focused on what truly matters to you over time.</p>
+
+    <div class="stryd-2col reveal">
+      <div class="stryd-card">
+        <div class="stryd-card-title">Benefits of Financial Planning</div>
+        <ul class="stryd-list">
+          <li>Better control over your cash flow and savings.</li>
+          <li>Clear visibility of your goals and timelines.</li>
+          <li>Disciplined investing aligned with your risk comfort.</li>
+          <li>Confidence to stay invested during market volatility.</li>
+          <li>Peace of mind knowing your financial journey is on track.</li>
+        </ul>
+      </div>
+      <div class="stryd-card">
+        <div class="stryd-card-title">Need for Financial Planning</div>
+        <p class="stryd-body">Building, managing, and preserving wealth is complex, especially as life evolves. Each life stage brings new financial responsibilities. Without a clear plan, even well-intentioned investments may fail to deliver desired outcomes.</p>
+        <p class="stryd-body" style="margin-top:10px">STRYD helps simplify this complexity through disciplined asset allocation, risk management, and ongoing review — integrating investment planning, retirement readiness, tax efficiency, and wealth protection into one cohesive strategy.</p>
+      </div>
+    </div>
+
+    <div class="stryd-block reveal">
+      <div class="stryd-block-title">Our Financial Planning Process</div>
+      <div class="stryd-steps">
+        <div class="stryd-step"><div class="step-num">01</div><div class="step-label">Identify Your Goals</div></div>
+        <div class="step-arrow">→</div>
+        <div class="stryd-step"><div class="step-num">02</div><div class="step-label">Assess Your Current Financial Situation</div></div>
+        <div class="step-arrow">→</div>
+        <div class="stryd-step"><div class="step-num">03</div><div class="step-label">Create a Personalized Financial Plan</div></div>
+        <div class="step-arrow">→</div>
+        <div class="stryd-step"><div class="step-num">04</div><div class="step-label">Implement, Monitor and Optimize</div></div>
+      </div>
+    </div>
+
+    <div class="stryd-why reveal">
+      <div class="stryd-block-title">Why STRYD for Financial Planning</div>
+      <div class="stryd-why-grid">
+        <div class="stryd-why-item"><span class="stryd-num">01</span><span>Goal-based planning tailored to your income and risk profile.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">02</span><span>Research-driven investment strategies focused on long-term compounding.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">03</span><span>Combination of expert advisory and easy-to-use digital tools.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">04</span><span>Transparent processes with no unnecessary complexity.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">05</span><span>Continuous monitoring and proactive guidance.</span></div>
+      </div>
+      <p class="stryd-closing" style="margin-top:28px">At STRYD, we believe financial planning is a lifelong partnership. Our role is to bring clarity, discipline, and confidence to your financial decisions so you can focus on living your life while your money works purposefully for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TAX PLANNING ══════ -->
+<section class="stryd-section" id="tax-planning">
+  <div class="stryd-inner">
+    <div class="stryd-eyebrow reveal">Tax Planning</div>
+    <h2 class="stryd-h2 reveal">Structured for <span class="metal-text">Maximum Efficiency.</span></h2>
+    <p class="stryd-lead reveal">Tax planning is not just about saving tax at the end of the financial year. It is about structuring your income, investments, and expenses in a way that you pay the right amount of tax while maximizing your long-term wealth.</p>
+    <p class="stryd-body reveal">At STRYD, tax planning is integrated with your overall financial plan. We help you understand how taxes impact your income, investments, and future goals and guide you on managing them efficiently. Tax planning involves strategic use of exemptions, deductions, and tax-efficient investment avenues to reduce taxable income and improve post-tax returns.</p>
+
+    <div class="stryd-2col reveal">
+      <div class="stryd-card">
+        <div class="stryd-card-title">Our Approach to Tax Planning</div>
+        <ul class="stryd-list">
+          <li>Salary structuring and exemptions.</li>
+          <li>Section-based deductions and allowances.</li>
+          <li>Health insurance and protection-related benefits.</li>
+          <li>Home loans and housing-related tax benefits.</li>
+          <li>Capital gains planning and investment taxation.</li>
+          <li>Long-term tax-efficient investment strategies.</li>
+        </ul>
+        <p class="stryd-closing">We ensure your tax plan complements your investment strategy instead of working in isolation.</p>
+      </div>
+      <div class="stryd-card">
+        <div class="stryd-card-title">Our Advice</div>
+        <ul class="stryd-list">
+          <li>Start early in the financial year and plan from April.</li>
+          <li>Use systematic and monthly investments.</li>
+          <li>Align tax planning with goal-based financial planning.</li>
+          <li>Focus on tax-efficient investment avenues.</li>
+          <li>Avoid unnecessary products chosen only for tax savings.</li>
+        </ul>
+        <p class="stryd-closing">Our goal is to help you keep more of what you earn and make informed decisions with clarity and confidence.</p>
+      </div>
+    </div>
+
+    <div class="stryd-why reveal">
+      <div class="stryd-block-title">Why STRYD for Tax Planning</div>
+      <div class="stryd-why-grid">
+        <div class="stryd-why-item"><span class="stryd-num">01</span><span>Integrated tax planning linked with your financial and investment goals.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">02</span><span>Clear guidance without unnecessary complexity or jargon.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">03</span><span>Focus on long-term tax efficiency rather than short-term savings.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">04</span><span>Research-driven recommendations aligned with current tax regulations.</span></div>
+        <div class="stryd-why-item"><span class="stryd-num">05</span><span>Personalized advice based on your income structure and risk profile.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ESTATE PLANNING ══════ -->
+<section class="stryd-section alt" id="estate-planning">
+  <div class="stryd-inner">
+    <div class="stryd-eyebrow reveal">Estate Planning</div>
+    <h2 class="stryd-h2 reveal">Protecting Your <span class="metal-text">Legacy.</span></h2>
+    <p class="stryd-lead reveal">Estate planning is the process of ensuring a smooth and intentional transfer of wealth to the next generation. It allows you to decide how your assets should be distributed and helps protect your loved ones from uncertainty, conflict, and legal complications.</p>
+    <p class="stryd-body reveal">At STRYD, estate planning focuses on clarity, control, and continuity. A well-structured estate plan ensures that your wealth passes into the right hands according to your wishes while keeping your family financially secure. Writing a clear and thoughtful Will is a critical part of estate planning.</p>
+
+    <div class="stryd-2col reveal">
+      <div class="stryd-card">
+        <div class="stryd-card-title">Why Estate Planning is Important</div>
+        <ul class="stryd-list">
+          <li>Clearly define beneficiaries and asset distribution.</li>
+          <li>Protect family members from legal and financial uncertainty.</li>
+          <li>Ensure continuity of wealth across generations.</li>
+          <li>Minimize disputes among heirs.</li>
+          <li>Maintain control over how and when assets are transferred.</li>
+        </ul>
+      </div>
+      <div class="stryd-card">
+        <div class="stryd-card-title">Important Points to Remember</div>
+        <ul class="stryd-list">
+          <li>Nomination in financial products does not automatically transfer ownership.</li>
+          <li>A nominee is not the same as a legal heir.</li>
+          <li>Appointing an executor ensures proper execution of your Will.</li>
+          <li>A registered Will significantly reduces disputes.</li>
+          <li>A Will can be modified at any time.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stryd-block reveal">
+      <div class="stryd-block-title">STRYD's Approach to Estate Planning</div>
+      <ul class="stryd-list">
+        <li>Guidance on drafting and structuring a Will.</li>
+        <li>Reviewing asset ownership and beneficiary details.</li>
+        <li>Alignment of nominations with estate objectives.</li>
+        <li>Coordination with tax and financial planning.</li>
+        <li>Long-term planning for family and legacy needs.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CALCULATORS ══════ -->
+<section class="stryd-section" id="calculators">
+  <div class="stryd-inner">
+    <div class="stryd-eyebrow reveal">Financial Calculators</div>
+    <h2 class="stryd-h2 reveal">Plan Your Future <span class="metal-text">with Precision.</span></h2>
+    <p class="stryd-lead reveal">Interactive financial planning tools designed to help investors make informed decisions and plan future financial goals.</p>
+
+    <div class="calc-tabs reveal">
+      <button class="calc-tab active" data-calc="sip">SIP Calculator</button>
+      <button class="calc-tab" data-calc="sipstepup">SIP Step-Up</button>
+      <button class="calc-tab" data-calc="education">Education</button>
+      <button class="calc-tab" data-calc="retirement">Retirement</button>
+    </div>
+
+    <div class="calc-panel active" id="calc-sip">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="calc-field"><label>Monthly Investment (₹)</label><input type="range" min="500" max="100000" step="500" value="5000" id="sip-amount"><div class="calc-val">₹<span id="sip-amount-val">5,000</span></div></div>
+          <div class="calc-field"><label>Expected Annual Return (%)</label><input type="range" min="1" max="30" step="0.5" value="12" id="sip-rate"><div class="calc-val"><span id="sip-rate-val">12</span>%</div></div>
+          <div class="calc-field"><label>Investment Period (Years)</label><input type="range" min="1" max="40" step="1" value="10" id="sip-years"><div class="calc-val"><span id="sip-years-val">10</span> yrs</div></div>
+          <div class="calc-results">
+            <div class="calc-result-row"><span>Invested Amount</span><strong id="sip-invested">—</strong></div>
+            <div class="calc-result-row"><span>Estimated Returns</span><strong id="sip-returns">—</strong></div>
+            <div class="calc-result-row total"><span>Total Value</span><strong id="sip-total">—</strong></div>
+          </div>
+        </div>
+        <div class="calc-chart-wrap">
+          <canvas id="sip-chart" width="280" height="280"></canvas>
+          <div class="calc-legend"><div class="leg-item"><span class="leg-dot invested"></span>Invested</div><div class="leg-item"><span class="leg-dot returns"></span>Returns</div></div>
+          <div class="calc-year-table" id="sip-table"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-panel" id="calc-sipstepup">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="calc-field"><label>Initial Monthly Investment (₹)</label><input type="range" min="500" max="50000" step="500" value="5000" id="su-amount"><div class="calc-val">₹<span id="su-amount-val">5,000</span></div></div>
+          <div class="calc-field"><label>Annual Step-Up (%)</label><input type="range" min="1" max="50" step="1" value="10" id="su-stepup"><div class="calc-val"><span id="su-stepup-val">10</span>%</div></div>
+          <div class="calc-field"><label>Expected Annual Return (%)</label><input type="range" min="1" max="30" step="0.5" value="12" id="su-rate"><div class="calc-val"><span id="su-rate-val">12</span>%</div></div>
+          <div class="calc-field"><label>Investment Period (Years)</label><input type="range" min="1" max="40" step="1" value="10" id="su-years"><div class="calc-val"><span id="su-years-val">10</span> yrs</div></div>
+          <div class="calc-results">
+            <div class="calc-result-row"><span>Invested Amount</span><strong id="su-invested">—</strong></div>
+            <div class="calc-result-row"><span>Estimated Returns</span><strong id="su-returns">—</strong></div>
+            <div class="calc-result-row total"><span>Total Value</span><strong id="su-total">—</strong></div>
+          </div>
+        </div>
+        <div class="calc-chart-wrap">
+          <canvas id="su-chart" width="280" height="280"></canvas>
+          <div class="calc-legend"><div class="leg-item"><span class="leg-dot invested"></span>Invested</div><div class="leg-item"><span class="leg-dot returns"></span>Returns</div></div>
+          <div class="calc-year-table" id="su-table"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-panel" id="calc-education">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="calc-field"><label>Current Education Cost (₹)</label><input type="range" min="100000" max="5000000" step="100000" value="1000000" id="edu-cost"><div class="calc-val">₹<span id="edu-cost-val">10,00,000</span></div></div>
+          <div class="calc-field"><label>Years Until Education</label><input type="range" min="1" max="20" step="1" value="10" id="edu-years"><div class="calc-val"><span id="edu-years-val">10</span> yrs</div></div>
+          <div class="calc-field"><label>Education Inflation (%)</label><input type="range" min="4" max="15" step="0.5" value="8" id="edu-inflation"><div class="calc-val"><span id="edu-inflation-val">8</span>%</div></div>
+          <div class="calc-field"><label>Expected Investment Return (%)</label><input type="range" min="4" max="20" step="0.5" value="12" id="edu-return"><div class="calc-val"><span id="edu-return-val">12</span>%</div></div>
+          <div class="calc-results">
+            <div class="calc-result-row"><span>Future Education Cost</span><strong id="edu-future">—</strong></div>
+            <div class="calc-result-row"><span>Monthly SIP Required</span><strong id="edu-sip">—</strong></div>
+            <div class="calc-result-row total"><span>Lump Sum Required Today</span><strong id="edu-lump">—</strong></div>
+          </div>
+        </div>
+        <div class="calc-chart-wrap">
+          <canvas id="edu-chart" width="280" height="280"></canvas>
+          <div class="calc-legend"><div class="leg-item"><span class="leg-dot invested"></span>Today's Value</div><div class="leg-item"><span class="leg-dot returns"></span>Inflation Growth</div></div>
+          <div class="calc-year-table" id="edu-table"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-panel" id="calc-retirement">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="calc-field"><label>Current Age</label><input type="range" min="20" max="60" step="1" value="30" id="ret-age"><div class="calc-val"><span id="ret-age-val">30</span> yrs</div></div>
+          <div class="calc-field"><label>Retirement Age</label><input type="range" min="40" max="70" step="1" value="60" id="ret-retire"><div class="calc-val"><span id="ret-retire-val">60</span> yrs</div></div>
+          <div class="calc-field"><label>Monthly Expenses Today (₹)</label><input type="range" min="10000" max="500000" step="5000" value="50000" id="ret-expense"><div class="calc-val">₹<span id="ret-expense-val">50,000</span></div></div>
+          <div class="calc-field"><label>Expected Return Pre-Retirement (%)</label><input type="range" min="4" max="20" step="0.5" value="12" id="ret-pre"><div class="calc-val"><span id="ret-pre-val">12</span>%</div></div>
+          <div class="calc-field"><label>Inflation Rate (%)</label><input type="range" min="3" max="10" step="0.5" value="6" id="ret-inflation"><div class="calc-val"><span id="ret-inflation-val">6</span>%</div></div>
+          <div class="calc-results">
+            <div class="calc-result-row"><span>Corpus Required</span><strong id="ret-corpus">—</strong></div>
+            <div class="calc-result-row"><span>Monthly SIP Required</span><strong id="ret-sip">—</strong></div>
+            <div class="calc-result-row total"><span>Years to Retirement</span><strong id="ret-years">—</strong></div>
+          </div>
+        </div>
+        <div class="calc-chart-wrap">
+          <canvas id="ret-chart" width="280" height="280"></canvas>
+          <div class="calc-legend"><div class="leg-item"><span class="leg-dot invested"></span>Contributions</div><div class="leg-item"><span class="leg-dot returns"></span>Growth</div></div>
+          <div class="calc-year-table" id="ret-table"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="stryd-section alt" id="faq">
+  <div class="stryd-inner">
+    <div class="stryd-eyebrow reveal">FAQ</div>
+    <h2 class="stryd-h2 reveal">Common <span class="metal-text">Questions.</span></h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">What services does STRYD offer? <span class="faq-icon">+</span></button>
+        <div class="faq-a">STRYD provides wealth advisory, investment planning, mutual fund distribution, portfolio reviews, risk profiling, and access to digital tools that help you manage and grow your money with clarity.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I start investing with STRYD? <span class="faq-icon">+</span></button>
+        <div class="faq-a">You can begin by connecting with our advisor or submitting your mobile number on the website. We will help you understand your goals and guide you through the onboarding process.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does STRYD assess my risk profile? <span class="faq-icon">+</span></button>
+        <div class="faq-a">We use a structured questionnaire to understand your comfort with market movements, investment horizon, and financial goals. This ensures your portfolio always matches your risk level.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is my money safe with STRYD? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. All investments are made through regulated platforms and compliant channels. Your data and transactions are processed through secure systems.</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ══════ CTA ══════ -->
-<section class="pil-section center" style="padding-top:40px">
-  <div class="hero-ctas" style="justify-content:center">
+<section class="pil-section center" style="padding:80px 72px">
+  <div class="pil-head center reveal">
+    <div class="section-eyebrow" style="justify-content:center">The Ecosystem Awaits</div>
+    <div class="section-title">Partner With <span class="metal-text">STRYD.</span></div>
+  </div>
+  <div class="hero-ctas" style="justify-content:center;margin-top:28px">
     <a href="contact.html" class="btn-primary">Enquire →</a>
-    <a href="index.html" class="btn-ghost">← Back to Legaxy</a>
+    <a href="index.html" class="btn-ghost">← Back to LegaXy</a>
   </div>
 </section>
 
@@ -665,6 +1071,187 @@ const _obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_obs.unobserve(e.target)}});
 },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>{el.classList.remove('in');_obs.observe(el)});
+/* ══ Calculator tabs ══ */
+document.querySelectorAll('.calc-tab').forEach(tab=>{
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.calc-panel').forEach(p=>p.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('calc-'+this.dataset.calc).classList.add('active');
+    updateAll();
+  });
+});
+
+function fmt(n){
+  if(n>=10000000)return '₹'+(n/10000000).toFixed(2)+' Cr';
+  if(n>=100000)return '₹'+(n/100000).toFixed(2)+' L';
+  return '₹'+Math.round(n).toLocaleString('en-IN');
+}
+function fmtN(n){return Math.round(n).toLocaleString('en-IN')}
+
+/* Draw donut chart on canvas */
+function drawDonut(id,invested,returns){
+  const canvas=document.getElementById(id);
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2,r=Math.min(W,H)*0.38,ir=r*0.62;
+  ctx.clearRect(0,0,W,H);
+  const total=invested+returns;
+  if(total<=0)return;
+  const slices=[
+    {val:invested,color:'rgba(188,82,37,.55)'},
+    {val:returns,color:'#BC5225'},
+  ];
+  let angle=-Math.PI/2;
+  slices.forEach(s=>{
+    const sweep=(s.val/total)*Math.PI*2;
+    ctx.beginPath();ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,angle,angle+sweep);
+    ctx.closePath();ctx.fillStyle=s.color;ctx.fill();
+    angle+=sweep;
+  });
+  ctx.beginPath();ctx.arc(cx,cy,ir,0,Math.PI*2);
+  ctx.fillStyle='#070B1A';ctx.fill();
+  ctx.fillStyle='#FFF';ctx.font='bold 13px Rajdhani,sans-serif';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(fmt(total),cx,cy);
+}
+
+/* Year table builder */
+function buildTable(id,rows){
+  const el=document.getElementById(id);
+  if(!el)return;
+  let html='<table><thead><tr><th>Year</th><th>Invested</th><th>Value</th><th>Gain</th></tr></thead><tbody>';
+  rows.forEach(r=>{
+    html+=`<tr><td>${r.yr}</td><td>${fmt(r.inv)}</td><td>${fmt(r.val)}</td><td style="color:#BC5225">${fmt(r.val-r.inv)}</td></tr>`;
+  });
+  el.innerHTML=html+'</tbody></table>';
+}
+
+/* SIP */
+function calcSIP(){
+  const amt=+document.getElementById('sip-amount').value;
+  const rate=+document.getElementById('sip-rate').value/100/12;
+  const months=+document.getElementById('sip-years').value*12;
+  const fv=amt*((Math.pow(1+rate,months)-1)/rate)*(1+rate);
+  const inv=amt*months;
+  document.getElementById('sip-amount-val').textContent=fmtN(amt);
+  document.getElementById('sip-rate-val').textContent=document.getElementById('sip-rate').value;
+  document.getElementById('sip-years-val').textContent=document.getElementById('sip-years').value;
+  document.getElementById('sip-invested').textContent=fmt(inv);
+  document.getElementById('sip-returns').textContent=fmt(fv-inv);
+  document.getElementById('sip-total').textContent=fmt(fv);
+  drawDonut('sip-chart',inv,fv-inv);
+  const rows=[];
+  for(let y=1;y<=+document.getElementById('sip-years').value;y++){
+    const m=y*12,v=amt*((Math.pow(1+rate,m)-1)/rate)*(1+rate);
+    rows.push({yr:y,inv:amt*m,val:v});
+  }
+  buildTable('sip-table',rows);
+}
+
+/* SIP Step-Up */
+function calcStepUp(){
+  const initAmt=+document.getElementById('su-amount').value;
+  const stepup=+document.getElementById('su-stepup').value/100;
+  const rate=+document.getElementById('su-rate').value/100/12;
+  const years=+document.getElementById('su-years').value;
+  document.getElementById('su-amount-val').textContent=fmtN(initAmt);
+  document.getElementById('su-stepup-val').textContent=document.getElementById('su-stepup').value;
+  document.getElementById('su-rate-val').textContent=document.getElementById('su-rate').value;
+  document.getElementById('su-years-val').textContent=years;
+  let totalInv=0,fv=0;const rows=[];
+  for(let y=1;y<=years;y++){
+    const monthlyAmt=initAmt*Math.pow(1+stepup,y-1);
+    for(let m=1;m<=12;m++){totalInv+=monthlyAmt;fv=(fv+monthlyAmt)*Math.pow(1+rate,1);}
+    rows.push({yr:y,inv:totalInv,val:fv});
+  }
+  document.getElementById('su-invested').textContent=fmt(totalInv);
+  document.getElementById('su-returns').textContent=fmt(fv-totalInv);
+  document.getElementById('su-total').textContent=fmt(fv);
+  drawDonut('su-chart',totalInv,fv-totalInv);
+  buildTable('su-table',rows);
+}
+
+/* Education */
+function calcEdu(){
+  const cost=+document.getElementById('edu-cost').value;
+  const yrs=+document.getElementById('edu-years').value;
+  const inf=+document.getElementById('edu-inflation').value/100;
+  const ret=+document.getElementById('edu-return').value/100;
+  document.getElementById('edu-cost-val').textContent=fmtN(cost);
+  document.getElementById('edu-years-val').textContent=yrs;
+  document.getElementById('edu-inflation-val').textContent=document.getElementById('edu-inflation').value;
+  document.getElementById('edu-return-val').textContent=document.getElementById('edu-return').value;
+  const futCost=cost*Math.pow(1+inf,yrs);
+  const lump=futCost/Math.pow(1+ret,yrs);
+  const r=ret/12,n=yrs*12;
+  const sip=futCost*r/(Math.pow(1+r,n)-1);
+  document.getElementById('edu-future').textContent=fmt(futCost);
+  document.getElementById('edu-sip').textContent=fmt(sip)+'/mo';
+  document.getElementById('edu-lump').textContent=fmt(lump);
+  const rows=[];
+  for(let y=1;y<=yrs;y++){
+    const inv=sip*12*y,v=sip*12*((Math.pow(1+ret/12,y*12)-1)/(ret/12))*(1+ret/12);
+    rows.push({yr:y,inv,val:v});
+  }
+  drawDonut('edu-chart',lump,futCost-lump);
+  buildTable('edu-table',rows);
+}
+
+/* Retirement */
+function calcRet(){
+  const curAge=+document.getElementById('ret-age').value;
+  const retAge=+document.getElementById('ret-retire').value;
+  const expense=+document.getElementById('ret-expense').value;
+  const preRet=+document.getElementById('ret-pre').value/100;
+  const inf=+document.getElementById('ret-inflation').value/100;
+  document.getElementById('ret-age-val').textContent=curAge;
+  document.getElementById('ret-retire-val').textContent=retAge;
+  document.getElementById('ret-expense-val').textContent=fmtN(expense);
+  document.getElementById('ret-pre-val').textContent=document.getElementById('ret-pre').value;
+  document.getElementById('ret-inflation-val').textContent=document.getElementById('ret-inflation').value;
+  const yrs=Math.max(1,retAge-curAge);
+  const futExp=expense*Math.pow(1+inf,yrs)*12;
+  const corpus=futExp*25;
+  const r=preRet/12,n=yrs*12;
+  const sip=corpus*r/(Math.pow(1+r,n)-1);
+  document.getElementById('ret-corpus').textContent=fmt(corpus);
+  document.getElementById('ret-sip').textContent=fmt(sip)+'/mo';
+  document.getElementById('ret-years').textContent=yrs+' yrs';
+  const rows=[];let acc=0;
+  for(let y=1;y<=yrs;y++){
+    const mSIP=sip;acc=(acc+mSIP*12)*Math.pow(1+preRet,1);
+    rows.push({yr:y,inv:sip*12*y,val:Math.min(acc,corpus)});
+  }
+  drawDonut('ret-chart',sip*12*yrs,Math.max(0,corpus-sip*12*yrs));
+  buildTable('ret-table',rows);
+}
+
+function updateAll(){
+  if(document.getElementById('calc-sip').classList.contains('active'))calcSIP();
+  if(document.getElementById('calc-sipstepup').classList.contains('active'))calcStepUp();
+  if(document.getElementById('calc-education').classList.contains('active'))calcEdu();
+  if(document.getElementById('calc-retirement').classList.contains('active'))calcRet();
+}
+
+['sip-amount','sip-rate','sip-years','su-amount','su-stepup','su-rate','su-years',
+ 'edu-cost','edu-years','edu-inflation','edu-return','ret-age','ret-retire',
+ 'ret-expense','ret-pre','ret-inflation'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)el.addEventListener('input',updateAll);
+});
+updateAll();
+
+/* ══ FAQ accordion ══ */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    const ans=this.nextElementSibling;
+    const isOpen=this.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
+    if(!isOpen){this.classList.add('open');ans.classList.add('open');}
+  });
+});
 </script>
 </body>
 </html>
